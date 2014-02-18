@@ -1,0 +1,13 @@
+
+%table.table.table-bordered.table-striped
+  %tr
+    %th Name
+    %th Description
+    %th
+
+  - @events.each do |event|
+    %tr
+      %td= event.name
+      %td= event.description
+      %td= link_to 'regist', event, :class => 'btn btn-primary'
+

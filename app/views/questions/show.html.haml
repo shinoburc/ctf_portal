@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @question.name
+%p
+  %b Description:
+  = @question.description
+%p
+  %b Answer:
+  = @question.answer
+%p
+  %b Genre:
+  = @question.genre_id
+%p
+  %b Default point:
+  = @question.default_point
+%p
+  %b Attach filename:
+  = @question.attach_filename
+%p
+  %b Attach file:
+  = @question.attach_file
+
+= link_to 'Edit', edit_question_path(@question)
+\|
+= link_to 'Back', questions_path

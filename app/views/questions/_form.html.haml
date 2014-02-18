@@ -1,0 +1,14 @@
+= simple_form_for(@question) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :answer
+    = f.input :genre_id
+    = f.input :default_point
+    = f.input :attach_filename
+    = f.file_field :attach_file
+
+  .form-actions
+    = f.button :submit
