@@ -13,7 +13,7 @@ CTF(Catch The Flag) portal site on rails.
   $ rails s
   ~~~
 
-    Goto http://localhost:3000 using your web browser.
+Goto http://localhost:3000 using your web browser.
 
 ## LICENSE
 
