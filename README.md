@@ -4,13 +4,14 @@ CTF(Catch The Flag) portal site on rails.
 
 ## install and start
 
-    ~~~ sh
-    $ git clone https://github.com/shinoburc/ctf_portal.git
-    $ cd ctf_portal
-    $ bundle install --path vendor/bundle
-    $ rake db:setup
-    $ rails s
-    ~~~
+
+  ~~~ sh
+  $ git clone https://github.com/shinoburc/ctf_portal.git
+  $ cd ctf_portal
+  $ bundle install --path vendor/bundle
+  $ rake db:setup
+  $ rails s
+  ~~~
 
     Goto http://localhost:3000 using your web browser.
 
