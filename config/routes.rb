@@ -1,4 +1,5 @@
 CtfPortal::Application.routes.draw do
+  get "events/show"
   get "welcome/index"
   resources :questions
 

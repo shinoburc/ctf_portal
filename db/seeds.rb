@@ -22,6 +22,9 @@ etc = Genre.create(name: 'etc')
 q1 = Question.create(name: 'echo', description: 'say "Hello World"', answer: 'Hello World', genre: etc, default_point: 100)
 q2 = Question.create(name: 'expr', description: '1 + 2', answer: '3', genre: etc, default_point: 100)
 
-event.questions.push q1
-event.questions.push q2
+eq1 = EventQuestion.create(order_number: 1, point: 100, question: q1)
+eq2 = EventQuestion.create(order_number: 2, point: 100, question: q2)
+
+event.event_questions.push eq1
+event.event_questions.push eq2
 event.save

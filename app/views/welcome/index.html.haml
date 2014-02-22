@@ -9,7 +9,8 @@
 
   - @events.each do |event|
     %tr
-      %td= event.name
+      %td
+        = link_to event.name, event
       %td= event.description
       %td= event.start_datetime
       %td= event.end_datetime

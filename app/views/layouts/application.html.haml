@@ -26,10 +26,10 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="/") CtfPortal
+          %a.brand(href="/") 
+            =image_tag asset_path('logo.png'), :size => '30x30'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "events", "/event"
               %li= link_to "group", "/groups"
 
     .container
@@ -43,7 +43,6 @@
             %h3 Sidebar
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "events", "/event"
               %li= link_to "group", "/groups"
 
       %footer
