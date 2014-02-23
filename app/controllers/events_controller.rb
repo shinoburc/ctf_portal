@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :join, :unjoin]
+  before_action :set_event, only: [:show, :join, :unjoin, :ranking]
   before_action :event_in, only: [:show, :join, :unjoin]
   before_action :user_event_in, only: [:show, :unjoin]
 
@@ -28,5 +28,10 @@ class EventsController < ApplicationController
       format.html { redirect_to root_path }
       format.json { head :no_content }
     end
+  end
+
+  # GET /events/1/ranking
+  # GET /events/1/ranking.json
+  def ranking
   end
 end

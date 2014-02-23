@@ -5,6 +5,7 @@ CtfPortal::Application.routes.draw do
   get "events/show"
   get "events/:id/join" => 'events#join', as: :events_join
   get "events/:id/unjoin" => 'events#unjoin', as: :events_unjoin
+  get "events/:id/ranking" => 'events#ranking', as: :events_ranking
   get "welcome/index"
 
   resources :questions

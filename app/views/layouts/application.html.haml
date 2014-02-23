@@ -53,11 +53,17 @@
           = yield
         .span3
           .well.sidebar-nav
-            %h3 Sidebar
+            %h3 Status
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "group", "/groups"
-              %li= link_to "ranking", "/groups"
+              - if user_signed_in?
+                - if @event
+                  %li.nav-header= 'Event:' + @event.name
+                  %li.nav-header= 'Score:' + event_user_score(@event, current_user).to_s
+                  %li= link_to 'Ranking', events_ranking_url(@event)
+                - elsif @event_question
+                  %li.nav-header= 'Event:' + @event_question.event.name
+                  %li.nav-header= 'Score:' + event_user_score(@event_question.event, current_user).to_s
+                  %li= link_to 'Ranking', events_ranking_url(@event_question.event)
 
       %footer
         //%p &copy; Company 2014
