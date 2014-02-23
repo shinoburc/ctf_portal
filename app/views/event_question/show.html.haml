@@ -1,7 +1,7 @@
 - if @event_user.event_questions.include? @event_question
   %p
     =image_tag asset_path('star.png')
-    %b You are already corrected this question.
+    %b You are already solved this question.
 %p
   %b Question:
   = @event_question.question.name

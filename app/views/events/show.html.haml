@@ -9,6 +9,12 @@
       %td
         - if @event_user.event_questions.include? event_question
           =image_tag asset_path('star.png')
+        - elsif @all_cleared_event_questions.include? event_question
+          =image_tag asset_path('exclamation.png')
+        - else
+          =image_tag asset_path('logo.png'), size: '16x16'
         = link_to event_question.question.name, event_question
       %td= event_question.question.genre.name
       %td= event_question.point
+
+= render 'display_manual'
