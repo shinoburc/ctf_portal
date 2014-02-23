@@ -10,6 +10,8 @@
 admin = User.create(name: 'admin', email: 'admin@local.host', password: 'password')
 
 event = Event.create(name: 'introduction', description: 'an introduction to CTF_portal', start_datetime: '2014/02/20 00:00:00', end_datetime: '2698/03/02 00:00:00')
+event_test1 = Event.create(name: 'test event', description: 'test event', start_datetime: '2013/03/20 00:00:00', end_datetime: '2013/03/21 00:00:00')
+event_test2 = Event.create(name: 'test event', description: 'test event', start_datetime: '2014/03/20 00:00:00', end_datetime: '2014/03/21 00:00:00')
 
 EventUser.create(user: admin, event: event)
 

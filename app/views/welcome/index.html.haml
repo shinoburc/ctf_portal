@@ -10,12 +10,17 @@
   - @events.each do |event|
     %tr
       %td
-        = link_to event.name, event
+        - if user_event_in? event, current_user
+          = link_to event.name, event
+        - else
+          = event.name
       %td= event.description
       %td= event.start_datetime
       %td= event.end_datetime
       %td
-        = @user
-        = link_to 'join', event, :class => 'btn btn-primary'
-        = link_to 'go', event, :class => 'btn btn-primary'
-
+        - if event_in? event
+          - if user_event_in? event, current_user
+            = link_to 'Go!', event, :class => 'btn btn-primary'
+            = link_to 'Unjoin', events_unjoin_path(event), :class => 'btn btn-primary', :data => { :confirm => 'Are you sure?' }
+          - else
+            = link_to 'Join', events_join_path(event), :class => 'btn btn-primary', :data => { :confirm => 'Are you sure?' }

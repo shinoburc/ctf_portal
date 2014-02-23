@@ -2,13 +2,13 @@
   %tr
     %th Question
     %th Genre
-    %th Description
     %th Point
 
   - @event.event_questions.each do |event_question|
     %tr
       %td
-        = link_to event_question.question.name, event_question.question
+        - if @event_user.event_questions.include? event_question
+          =image_tag asset_path('star.png')
+        = link_to event_question.question.name, event_question
       %td= event_question.question.genre.name
-      %td= event_question.question.description
       %td= event_question.point

@@ -1,6 +1,12 @@
 CtfPortal::Application.routes.draw do
+  get "event_question/:id" => 'event_question#show', as: :event_question
+  patch "event_question/:id/answer" => 'event_question#answer', as: :event_question_answer
+
   get "events/show"
+  get "events/:id/join" => 'events#join', as: :events_join
+  get "events/:id/unjoin" => 'events#unjoin', as: :events_unjoin
   get "welcome/index"
+
   resources :questions
 
   resources :groups

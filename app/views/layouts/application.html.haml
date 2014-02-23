@@ -27,10 +27,23 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="/") 
-            =image_tag asset_path('logo.png'), :size => '30x30'
+            =image_tag asset_path('logo.png')
           .container.nav-collapse
             %ul.nav
-              %li= link_to "group", "/groups"
+              %li.divider-vertical
+              - if user_signed_in?
+                - if @event
+                  %li= link_to @event.name, @event
+                  %li.nav-header= 'Score:' + event_user_score(@event, current_user).to_s
+                - elsif @event_question
+                  %li= link_to @event_question.event.name, @event_question.event
+                  %li.nav-header= 'Score:' + event_user_score(@event_question.event, current_user).to_s
+            %ul.nav.pull-right
+              - if user_signed_in?
+                %li= link_to (gravatar_for(current_user) + current_user.email), edit_user_registration_path, :class => 'navbar-link'
+                %li= link_to image_tag(asset_path('settings.png')), edit_user_registration_path, :class => 'navbar-link'
+                %li= link_to image_tag(asset_path('exit.png'), :alt => "hello"), destroy_user_session_path, method: :delete, :class => 'navbar-link'
+
 
     .container
 
@@ -44,6 +57,7 @@
             %ul.nav.nav-list
               %li.nav-header Sidebar
               %li= link_to "group", "/groups"
+              %li= link_to "ranking", "/groups"
 
       %footer
         //%p &copy; Company 2014

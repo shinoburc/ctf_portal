@@ -107,4 +107,7 @@ ActiveRecord::Schema.define(version: 20140216080737) do
   add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_index "group_users", [:group_id,:user_id], unique: true
+  add_index "event_users", [:event_id,:user_id], unique: true
+  add_index "cleared_user_questions", [:event_user_id,:event_question_id], unique: true, name: 'index_cleared_user_questions'
 end

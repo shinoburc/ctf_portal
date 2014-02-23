@@ -1,0 +1,22 @@
+%table.table.table-bordered.table-striped
+  %tr
+    %td= 'Question'
+    %td= @event_question.question.name
+  %tr
+    %td= 'Genre'
+    %td= @event_question.question.genre.name
+  %tr
+    %td= 'Point'
+    %td= @event_question.point
+  %tr
+    %td= 'Description'
+    %td= @event_question.question.description
+
+= simple_form_for @event_question, url: event_question_answer_url do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :answer, label: 'Your answer'
+
+  .form-actions
+    = f.button :submit
