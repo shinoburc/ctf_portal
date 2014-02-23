@@ -17,6 +17,8 @@ CTF(Catch The Flag) portal site on rails.
 
 Go to [http://localhost:3000](http://localhost:3000)
 
+default username and password is admin@local.host/password.
+
 ## Heroku
 
   ~~~ sh
