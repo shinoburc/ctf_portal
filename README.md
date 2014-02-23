@@ -1,4 +1,4 @@
-# CTF portal
+# ![ctf_portal](app/assets/images/logo.png) CTF portal
 
 ctf_portal is now under development.
 
