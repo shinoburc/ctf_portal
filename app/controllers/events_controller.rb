@@ -8,8 +8,10 @@ class EventsController < ApplicationController
   def show
     @event_user = EventUser.where(user: current_user, event: @event).first
 
-    cleared_user_questions = ClearedUserQuestion.where(["event_question_id in (?)", @event.event_questions.ids])
-    @all_cleared_event_questions = EventQuestion.where(["id in (?)", cleared_user_questions.ids])
+    all_cleared_event_questions = ClearedUserQuestion.select('event_question_id').where(event: @event)
+    print "#####################"
+    print all_cleared_event_questions
+    @all_cleared_event_questions = EventQuestion.where(["id in (?)", all_cleared_event_questions])
   end
 
   # GET /events/1/join

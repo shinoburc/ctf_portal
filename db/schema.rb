@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140216080737) do
   enable_extension "plpgsql"
 
   create_table "cleared_user_questions", force: true do |t|
+    t.integer  "event_id"
     t.integer  "event_user_id"
     t.integer  "event_question_id"
     t.datetime "created_at"

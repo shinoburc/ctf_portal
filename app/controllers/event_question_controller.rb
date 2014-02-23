@@ -14,7 +14,7 @@ class EventQuestionController < ApplicationController
     respond_to do |format|
       if @answer == @event_question.question.answer
         event_user = EventUser.where(user: current_user, event: @event_question.event).first
-        ClearedUserQuestion.create(event_user: event_user, event_question: @event_question)
+        ClearedUserQuestion.create(event: @event_question.event, event_user: event_user, event_question: @event_question)
         format.html { redirect_to @event_question, notice: 'Good answer. Congratulations!!!' }
         format.json { render action: 'answer', status: :correct, location: @event_question }
       else
