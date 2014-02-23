@@ -9,8 +9,6 @@ class EventsController < ApplicationController
     @event_user = EventUser.where(user: current_user, event: @event).first
 
     all_cleared_event_questions = ClearedUserQuestion.select('event_question_id').where(event: @event)
-    print "#####################"
-    print all_cleared_event_questions
     @all_cleared_event_questions = EventQuestion.where(["id in (?)", all_cleared_event_questions])
   end
 
@@ -38,5 +36,11 @@ class EventsController < ApplicationController
   # GET /events/1/ranking
   # GET /events/1/ranking.json
   def ranking
+    # select cuq.event_user_id, sum(eq.point) as score 
+    # from cleared_user_questions as cuq 
+    # left outer join event_questions as eq on cuq.event_question_id = eq.id 
+    # group by cuq.event_user_id 
+    # order by score desc;
+    @ranking = ClearedUserQuestion.select('cleared_user_questions.event_id, cleared_user_questions.event_user_id, sum(event_questions.point) as score').joins(:event_question).group('cleared_user_questions.event_id, cleared_user_questions.event_user_id').having(event: @event).order('score desc')
   end
 end

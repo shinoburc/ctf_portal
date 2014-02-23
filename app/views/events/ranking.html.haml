@@ -1,1 +1,10 @@
 %h1 Ranking
+
+%table.table.table-bordered.table-striped
+  %tr
+    %th Name
+    %th Score
+  - @ranking.each do |rank|
+    %tr
+      %td= rank.event_user.user.name
+      %td= rank.score
