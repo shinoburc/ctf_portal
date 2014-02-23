@@ -4,6 +4,7 @@ class EventQuestionController < ApplicationController
   # GET /event_question/1
   # GET /event_question/1.json
   def show
+    @event_user = EventUser.where(user: current_user, event: @event_question.event).first
   end
 
   # PATCH /event_question/1/answer
