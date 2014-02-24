@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 20140216080737) do
   end
 
   create_table "events", force: true do |t|
-    t.string   "name"
+    t.string   "name",                   default: "", null: false
     t.text     "description"
+    t.integer  "max_group_member"
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.datetime "created_at"
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 20140216080737) do
   end
 
   create_table "genres", force: true do |t|
-    t.string   "name"
+    t.string   "name",                   default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,15 +64,16 @@ ActiveRecord::Schema.define(version: 20140216080737) do
   end
 
   create_table "groups", force: true do |t|
-    t.string   "name"
+    t.string   "name",                   default: "", null: false
     t.text     "description"
+    t.string   "encrypted_password",     default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "questions", force: true do |t|
-    t.string   "name"
-    t.text     "description"
+    t.string   "name",                   default: "", null: false
+    t.text     "description",            default: "", null: false
     t.string   "answer"
     t.integer  "genre_id"
     t.integer  "default_point"
@@ -82,8 +84,8 @@ ActiveRecord::Schema.define(version: 20140216080737) do
   end
 
   create_table "settings", force: true do |t|
-    t.string   "name"
-    t.string   "value"
+    t.string   "name",                   default: "", null: false
+    t.string   "value",                  default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

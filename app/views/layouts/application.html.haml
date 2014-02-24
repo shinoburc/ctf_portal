@@ -35,9 +35,6 @@
                 - if @event
                   %li= link_to @event.name, @event
                   %li.nav-header= 'Score:' + event_user_score(@event, current_user).to_s
-                - elsif @event_question
-                  %li= link_to @event_question.event.name, @event_question.event
-                  %li.nav-header= 'Score:' + event_user_score(@event_question.event, current_user).to_s
             %ul.nav.pull-right
               - if user_signed_in?
                 %li= link_to (gravatar_for(current_user) + ' ' + current_user.name), edit_user_registration_path, :class => 'navbar-link'
@@ -59,11 +56,10 @@
                 - if @event
                   %li.nav-header= 'Event:' + @event.name
                   %li.nav-header= 'Score:' + event_user_score(@event, current_user).to_s
+                  %hr
                   %li= link_to 'Ranking', events_ranking_url(@event)
-                - elsif @event_question
-                  %li.nav-header= 'Event:' + @event_question.event.name
-                  %li.nav-header= 'Score:' + event_user_score(@event_question.event, current_user).to_s
-                  %li= link_to 'Ranking', events_ranking_url(@event_question.event)
-
+                  %hr
+                  %li= link_to 'Create Group', events_create_group_url(@event)
+                  %li= link_to 'Join Group', events_join_group_url(@event)
       %footer
         //%p &copy; Company 2014

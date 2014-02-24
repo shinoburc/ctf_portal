@@ -1,5 +1,5 @@
 class EventQuestionController < ApplicationController
-  before_action :set_event_question, only: [:show, :answer]
+  before_action :set_event_and_question, only: [:show, :answer]
 
   # GET /event_question/1
   # GET /event_question/1.json
@@ -25,8 +25,9 @@ class EventQuestionController < ApplicationController
   end
 
   private
-    def set_event_question
+    def set_event_and_question
       @event_question = EventQuestion.find(params[:id])
+      @event = @event_question.event
     end
 
     def event_question_params
