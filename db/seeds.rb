@@ -10,7 +10,7 @@
 admin = User.create(name: 'admin', email: 'admin@local.host', password: 'password')
 
 event = Event.create(name: 'introduction', description: 'an introduction to CTF_portal', start_datetime: '2014/02/20 00:00:00', end_datetime: '2698/03/02 00:00:00')
-event_test1 = Event.create(name: 'test event', description: 'test event', start_datetime: '2013/03/20 00:00:00', end_datetime: '2013/03/21 00:00:00')
+event_test1 = Event.create(name: 'test event', description: 'test event', start_datetime: '2014/02/20 00:00:00', end_datetime: '2014/03/21 00:00:00')
 event_test2 = Event.create(name: 'test event', description: 'test event', start_datetime: '2014/03/20 00:00:00', end_datetime: '2014/03/21 00:00:00')
 
 EventUser.create(user: admin, event: event)
@@ -27,6 +27,14 @@ q2 = Question.create(name: 'expr', description: '1 + 2', answer: '3', genre: etc
 eq1 = EventQuestion.create(order_number: 1, point: 100, question: q1)
 eq2 = EventQuestion.create(order_number: 2, point: 100, question: q2)
 
+eq3 = EventQuestion.create(order_number: 1, point: 100, question: q1)
+eq4 = EventQuestion.create(order_number: 2, point: 100, question: q2)
+
+
 event.event_questions.push eq1
 event.event_questions.push eq2
 event.save
+
+event_test1.event_questions.push eq3
+event_test1.event_questions.push eq4
+event_test1.save
