@@ -3,7 +3,7 @@ class CreateGroups < ActiveRecord::Migration
     create_table :groups do |t|
       t.string :name, :null => false, :default => ""
       t.text :description
-      t.string :encrypted_password, :null => false, :default => ""
+      t.string :password_digest, :null => false, :default => ""
 
       t.timestamps
     end

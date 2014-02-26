@@ -6,9 +6,9 @@ CtfPortal::Application.routes.draw do
   get "events/:id/join" => 'events#join', as: :events_join
   get "events/:id/unjoin" => 'events#unjoin', as: :events_unjoin
   get "events/:id/ranking" => 'events#ranking', as: :events_ranking
-  get "events/:id/create_group" => 'events#create_group', as: :events_create_group
-  get "events/:id/join_group" => 'events#join_group', as: :events_join_group
   get "welcome/index"
+
+  get "groups/edit_join_group" => 'groups#edit_join_group', as: :edit_join_group
 
   resources :questions
 

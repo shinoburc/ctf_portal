@@ -50,7 +50,7 @@
           = yield
         .span3
           .well.sidebar-nav
-            %h3 Event Menu
+            %h3 Menu
             %ul.nav.nav-list
               - if user_signed_in?
                 - if @event
@@ -58,8 +58,8 @@
                   %li.nav-header= 'Score:' + event_user_score(@event, current_user).to_s
                   %hr
                   %li= link_to 'Ranking', events_ranking_url(@event)
-                  %hr
-                  %li= link_to 'Create Group', events_create_group_url(@event)
-                  %li= link_to 'Join Group', events_join_group_url(@event)
+                %hr
+                %li= link_to 'Create Group', new_group_path
+                %li= link_to 'Join Group', edit_join_group_path
       %footer
         //%p &copy; Company 2014

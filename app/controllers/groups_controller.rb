@@ -27,7 +27,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     respond_to do |format|
-      if @group.save
+      if @group.password == @group.password_confirmation and @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render action: 'show', status: :created, location: @group }
       else
@@ -41,7 +41,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
   def update
     respond_to do |format|
-      if @group.update(group_params)
+      if @group.password == @group.password_confirmation and @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { head :no_content }
       else
@@ -69,6 +69,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :description)
+      params.require(:group).permit(:name, :description, :password, :password_confirmation)
     end
 end

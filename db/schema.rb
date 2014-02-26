@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140216080737) do
   create_table "groups", force: true do |t|
     t.string   "name",                   default: "", null: false
     t.text     "description"
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "password_digest",        default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
