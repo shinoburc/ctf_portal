@@ -61,6 +61,12 @@ class GroupsController < ApplicationController
     end
   end
 
+  # GET /groups/edit_join_group
+  def edit_join_group
+    @groups = Group.all
+    @group_user = GroupUser.new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
